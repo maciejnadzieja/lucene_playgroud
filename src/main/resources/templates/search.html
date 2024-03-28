@@ -1,0 +1,5 @@
+<tr th:each="recipe: ${recipes}">
+    <td th:text="${recipe.id}"/>
+    <td th:text="${recipe.title}"/>
+    <td th:text="${recipe.ingredients}"/>
+</tr>

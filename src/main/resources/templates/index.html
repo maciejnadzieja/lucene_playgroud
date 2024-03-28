@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Lucene search</title>
+    <script type="text/javascript" th:src="@{/webjars/htmx.org/dist/htmx.min.js}"></script>
+    <link th:href="@{/webjars/daisyui/dist/full.css}" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+<div id="root" style="padding: 5px">
+    <h3>
+        Search recipes <span class="htmx-indicator"><img src="/img/bars.svg"/> Searching...</span>
+    </h3>
+    <input class="input input-bordered w-full max-w-xs" type="search"
+           name="search" placeholder="Begin Typing To Search..."
+           hx-post="/search"
+           hx-trigger="input changed delay:500ms, search"
+           hx-target="#search-results"
+           hx-indicator=".htmx-indicator">
+
+    <div class="overflow-x-auto">
+        <table class="table table-xs">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>title</th>
+                <th>Tags</th>
+            </tr>
+            </thead>
+            <tbody id="search-results">
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
