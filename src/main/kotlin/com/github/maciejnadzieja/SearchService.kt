@@ -13,7 +13,7 @@ import org.apache.lucene.store.MMapDirectory
 import kotlin.io.path.Path
 
 
-class App {
+class SearchService {
 
     fun buildIndex() {
         val analyzer = StandardAnalyzer()
@@ -31,22 +31,23 @@ class App {
         }
     }
 
-    fun runQuery() {
+    fun runQuery(queryString: String): List<Recipe> {
         val analyzer = StandardAnalyzer()
         val index = MMapDirectory(Path("index"))
 
-        val queryString = "onion"
         val query = QueryParser("ner", analyzer).parse(queryString)
         val searcher = IndexSearcher(DirectoryReader.open(index))
-        val result = searcher.search(query, 10)
-        result.scoreDocs.forEach {
-            println(searcher.storedFields().document(it.doc).get("title"))
+        val result = searcher.search(query, 20)
+        return result.scoreDocs.map {
+            Recipe(
+                id = it.doc,
+                title = searcher.storedFields().document(it.doc).get("title"),
+                ingredients = emptyList(),
+                directions = emptyList(),
+                link = "link",
+                source = "source",
+                ner = emptyList()
+            )
         }
     }
-}
-
-fun main() {
-    val app = App()
-    app.buildIndex()
-    app.runQuery()
 }
