@@ -65,7 +65,7 @@ class SearchService {
                 title = doc.get("title"),
                 ingredients = doc.getValues("ingredients").toList(),
                 directions = doc.getValues("directions").toList(),
-                link = doc.get("link"),
+                link = "https://${doc.get("link")}",
                 source = doc.get("source"),
                 ner = doc.getValues("ner").toList()
             )

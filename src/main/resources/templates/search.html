@@ -3,7 +3,8 @@
     <td th:text="${recipe.title}"/>
     <td th:text="${recipe.ingredients}"/>
     <td th:text="${recipe.directions}"/>
-    <td th:text="${recipe.link}"/>
-    <td th:text="${recipe.source}"/>
+    <td>
+        <a th:href="@{${recipe.link}}" th:text="${recipe.source}" target="_blank"/>
+    </td>
     <td th:text="${recipe.ner}"/>
 </tr>
