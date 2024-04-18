@@ -1,4 +1,4 @@
-package com.github.maciejnadzieja
+package com.github.maciejnadzieja.recipesearch
 
 data class Recipe(
     val id: Int,

@@ -1,6 +1,6 @@
 package com.github.maciejnadzieja.web
 
-import com.github.maciejnadzieja.SearchService
+import com.github.maciejnadzieja.recipesearch.SearchService
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping

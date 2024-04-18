@@ -1,4 +1,4 @@
-package com.github.maciejnadzieja
+package com.github.maciejnadzieja.recipesearch
 
 import com.fasterxml.jackson.dataformat.csv.CsvMapper
 import com.fasterxml.jackson.dataformat.csv.CsvParser
